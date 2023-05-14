@@ -1,0 +1,6 @@
+<p>Menu Items:</p>
+<ul>
+  <li *ngFor="let menuItem of (menuItems | async)?.[0]?.menu">
+    {{ menuItem.category }} - {{ menuItem.name }} - {{ menuItem.price }}
+  </li>
+</ul>

@@ -1,0 +1,8 @@
+<p>Menu</p>
+<ul>
+  <li *ngFor="let menu of menu | async">
+    <a (click)="selectMenu(menu)" [routerLink]="['/restaurants', menu.resId, 'menu', menu.menuId, 'items']">
+      {{ menu.name }}
+    </a>
+  </li>
+</ul>
