@@ -1,5 +1,5 @@
 interface IRestaurantModelAngular {
-    id: Number;
+    resId: String;
     name: String;
     image: String;
     location: String;
