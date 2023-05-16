@@ -18,4 +18,9 @@ export class HomeComponent implements OnInit {
     this.restaurantService.getItems().subscribe(data => this.restaurants = of(data));
   }
 
+  showAllCards()
+  {
+    
+  }
+
 }
