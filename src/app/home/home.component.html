@@ -33,85 +33,35 @@
     </nav>
   </div>
 
-  <!-- <div class="container">
-      <img src="../../assets/images/DineEasy.jpg" class="custom-image" alt="Background image"/>
-    <nav class="navbar">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">DineEasy</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sign In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
-            </li> 
-          </ul>
-        </div>
+
+  <div class="container">
+    <!-- Restaurants section -->
+    <div class="row section-spacing">
+      <div class="col-md-11">
+        <h2>Available for Dining</h2>
       </div>
-  </nav>
-  </div> -->
-  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-img">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">DineEasy</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Sign In</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
-          </li> 
-        </ul>
-      </div>
+      <div class="col-md"><a href="#" onclick="showAllCards()">See All</a></div>
     </div>
-  </nav> -->
-
-  <!-- <hr class="line-section">
-  <div class ="container-fluid">
-    <div class="row">
-      <div class="col-md">
-        <div class="position-relative">
-          <img src="../../assets/images/DineEasy.jpg" class="custom-image" alt="Background image"/>
+    <hr class="line-section">
+    <div class="row justify-content-evenly section-spacing">
+      <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let restaurant of (restaurants | async | slice:0:4)">
+        <div class="card h-100">
+          <img [src]="restaurant.image" class="card-img-top" alt="Restaurant Image">
+          <div class="card-body">
+            <h5 class="card-title">{{ restaurant.name }}</h5>
+            <div class="d-flex justify-content-between mb-2">
+              <p class="small-text text-secondary">Rating: {{ restaurant.rating }}</p>
+              <p class="small-text text-secondary">Reviews: {{ restaurant.reviews }}</p>
             </div>
-      </div>
-    </div> -->
-
-    <div class="container">
-      <!-- Restaurants section -->
-      <div class="row section-spacing">
-        <div class="col-md-11">
-          <h2>Available for Dining</h2>
-        </div>
-        <div class="col-md"><a href="#" onclick="showAllCards()">See All</a></div>
-      </div>
-      <hr class="line-section">
-      <div class="row justify-content-evenly section-spacing">
-        <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let restaurant of (restaurants | async | slice:0:4)">
-          <div class="card h-100">
-            <img [src]="restaurant.image" class="card-img-top" alt="Restaurant Image">
-            <div class="card-body">
-              <h5 class="card-title">{{ restaurant.name }}</h5>
-              <div class="d-flex justify-content-between mb-2">
-                <p class="small-text text-secondary">Rating: {{ restaurant.rating }}</p>
-                <p class="small-text text-secondary">Reviews: {{ restaurant.reviews }}</p>
-              </div>
-              <p class="card-text small-text text-secondary text-truncate">Neighborhood: {{ restaurant.neighborhood }}</p>
-              <p class="card-text small-text text-secondary text-truncate">Cuisines: {{ restaurant.cuisines }}</p>
-              <a href="#" class="btn btn-primary">View Restaurant</a>
-            </div>
+            <p class=" text card-text small-text text-truncate">Neighborhood: {{ restaurant.neighborhood }}</p>
+            <p class=" text card-text small-text text-truncate">Cuisines: {{ restaurant.cuisines }}</p>
+            <a href="#" class="btn btn-primary">View Restaurant</a>
           </div>
         </div>
       </div>
     </div>
-    
-    
+  </div>
+
 
   <!-- </div>/container -->
 

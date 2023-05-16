@@ -1,3 +1,6 @@
+body {
+  background-color: #F9F5E7;
+}
 .header {
   position: relative;
   height: 75vh;
@@ -19,32 +22,29 @@
   font-size: 18px;
   margin-left: 20px;
 }
-
-.image-width {
-    width: 100%;
-    height: auto;
-  }
-
-  .card-equal-height {
-    height: 100%;
-  }
-
-  .section-spacing {
-    margin-top: 40px;
-    margin-bottom: 1px;
-  }
-
-  .custom-image {
-    width: 100vw;
-    height:80vh;
-  }
-
-  .nav-bg {
-    background-color: snow;
-  }
-  .line-section {
-    border-top: 2px solid black;
-    margin: 5px 0;
-  }
-
+.card {
+  transition: transform 0.5s;
+  cursor: pointer;
+  background-color: #F8EAD8;
   
+}
+
+.card:hover {
+  transform: scale(1.09);
+}
+.text{
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight:lighter;
+  letter-spacing: 0.2em;
+}
+
+.section-spacing {
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.line-section {
+  border-top: 2px solid black;
+  margin: 5px 0;
+}
