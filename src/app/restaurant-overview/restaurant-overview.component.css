@@ -14,7 +14,7 @@
   }
 
   .icon-yellow {
-    color:goldenrod;
+    color:rgb(218, 122, 32);
   }
   
   .icon-blue {
@@ -28,4 +28,14 @@
   .icon-green {
     color: green;
   }
+
+  .shadow-box {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
   
+  .icon-container {
+    display: flex;
+    align-items: center;
+  }

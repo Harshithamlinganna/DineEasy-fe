@@ -13,7 +13,6 @@ export class RestaurantComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private service: RestaurantService
   ) {}
 

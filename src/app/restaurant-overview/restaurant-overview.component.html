@@ -5,37 +5,36 @@
         <br>
         <div class="row">
           <div class="col-md-3">
-            <mat-icon class="icon-yellow">star</mat-icon> <strong>Rating:</strong> {{ restaurant.rating }}
+            <div class="icon-container"><mat-icon class="icon-yellow">star</mat-icon><strong>Ratings: </strong> {{ restaurant.rating }}</div>
           </div>
           <div class="col-md-3">
-            <mat-icon class="icon-grey">comment</mat-icon> <strong>Reviews:</strong> {{ restaurant.reviews }}
+            <div class="icon-container"><mat-icon class="icon-grey">comment</mat-icon> <strong>Reviews: </strong> {{ restaurant.reviews }}</div>
           </div>
           <div class="col-md-3">
-            <mat-icon class="icon-grey">attach_money</mat-icon> <strong>Cost:</strong> {{ restaurant.cost }}
+            <div class="icon-container"><mat-icon class="icon-grey">attach_money</mat-icon> <strong>Cost: </strong> {{ restaurant.cost }}</div>
           </div>
           <div class="col-md-3">
-            <strong>Cuisines:</strong> {{ restaurant.cuisines }}
+            <div class="icon-container"><strong>Cuisines: </strong> {{ restaurant.cuisines }}</div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row line-section">
-      <h3>About</h3>
-      <p>
-        <mat-icon class="icon-blue">phone</mat-icon> <strong>Contact:</strong> {{ restaurant.contact }}
-      </p>
-      <p>
-        <mat-icon class="icon-grey">location_city</mat-icon> <strong>Neighborhood:</strong> {{ restaurant.neighborhood }}
-      </p>
-      <p>
-        <mat-icon class="icon-grey">schedule</mat-icon> <strong>Hours:</strong> {{ restaurant.hours }}
-      </p>
-      <p>
-        <mat-icon class="icon-green">local_parking</mat-icon> <strong>Parking Details:</strong> {{ restaurant.parkingdetails }}
-      </p>
-      <p>
-        <strong>Valet Parking:</strong> {{ restaurant.isValetPark ? 'Yes' : 'No' }}
-      </p>
-    </div>
-  </div>
+    <br>
+    <div class="row line-section section-spacing shadow-box">
+        <h3>About</h3>
+        <div class="col-md-6">
+          <p>
+            <div class="icon-container"><mat-icon class="icon-blue">phone</mat-icon> <strong>Contact:</strong> {{ restaurant.contact }}</div>
+          <p>
+            <div class="icon-container"><mat-icon class="icon-grey">location_city</mat-icon> <strong>Neighborhood:</strong> {{ restaurant.neighborhood }}</div>
+          <p>
+            <div class="icon-container"><mat-icon class="icon-grey">schedule</mat-icon> <strong>Hours:</strong> {{ restaurant.hours }}</div>
+        </div>
+        <div class="col-md-6 justify-content-end">
+              <p>
+                <mat-icon class="icon-green">local_parking</mat-icon><strong>Parking Details: </strong> {{ restaurant.parkingdetails }}
+              <p>
+                <div class="icon-container"><strong>Valet Parking:</strong> {{ restaurant.isValetPark ? 'Yes' : 'No' }}</div>
+            </div>
+          </div>
+</div>    
   
