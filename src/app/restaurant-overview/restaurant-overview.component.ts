@@ -14,12 +14,11 @@ export class RestaurantOverviewComponent {
   
     constructor(
       private route: ActivatedRoute,
-      private router: Router,
       private service: RestaurantService
     ) {}
   
     ngOnInit() {
-      const id = this.route.snapshot.paramMap.get('id')!;
+      const id = this.route.parent?.snapshot.paramMap.get('id')!;
       console.log("id ", id);
       this.service.getRestaurantDetailsById(id).subscribe(
         data => {
@@ -28,5 +27,4 @@ export class RestaurantOverviewComponent {
         }
       );
     }
-  
 }
