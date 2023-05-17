@@ -1,0 +1,25 @@
+<div class="container">
+    <!-- Restaurants section -->
+    <div class="row section-spacing">
+      <div class="col-md-11">
+        <h2>Available for Dining</h2>
+      </div>
+      <div class="col-md">
+        <a href="#" (click)="showAllCards()">See All</a>
+      </div>
+    </div>
+    <hr class="line-section">
+    <div class="row justify-content-start section-spacing">
+      <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let restaurant of (restaurants | async)">
+        <mat-card>
+          <img mat-card-image [src]="restaurant.image" alt="Restaurant Image">
+          <mat-card-content>
+            <h5>{{ restaurant.name }}</h5>
+            <p>Cuisines: {{ restaurant.cuisines }}</p>
+            <button mat-button color="primary" [routerLink]= "['/restaurants', restaurant.resId]">View Restaurant</button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+</div>
+  
