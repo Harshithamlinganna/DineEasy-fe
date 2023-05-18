@@ -3,15 +3,29 @@
     <!-- Restaurants section -->
     <div class="row section-spacing">
       <div class="col-md-11">
-        <h2>AVAILABLE FOR DINING</h2>
+        <h2 class="dining">AVAILABLE FOR DINING</h2>
       </div>
       <div class="col-md">
         <a class="btn btn-link" (click)="showAllCards()">See All</a>
       </div>
     </div>
+
+    <!-- Search input field -->
+    <div class="row section-spacing">
+      <div class="col-md-6">
+        <div class="input-group">
+          <input class="form-control search-input" type="text" placeholder="Search your favorite Restaurant or Cuisine" [(ngModel)]="searchTerm" (input)="filterRestaurants()">
+          <button class="btn btn-outline-secondary clear-button" type="button" (click)="clearSearch()">CLEAR</button>
+        </div>
+      </div>
+    </div>
+    
+
     <hr class="line-section">
+
+    <!-- Filtered restaurants list -->
     <div class="row justify-content-start d-flex flex-wrap section-spacing">
-      <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let restaurant of restaurants | async">
+      <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let restaurant of filteredRestaurants | async">
         <mat-card class="card h-100">
           <img mat-card-image class="img-width" [src]="restaurant.image" alt="Restaurant Image">
           <mat-card-content>

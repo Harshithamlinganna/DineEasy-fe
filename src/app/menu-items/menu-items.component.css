@@ -1,0 +1,33 @@
+/* menu-items.component.css */
+.container {
+    margin-top: 20px;
+  }
+  
+  .section-spacing {
+    margin-bottom: 20px;
+  }
+  
+  /* menu.component.css */
+  .container {
+    margin-top: 20px;
+  }
+  
+  .section-spacing {
+    margin-bottom: 20px;
+  }
+  
+  .nav-tabs {
+    background-color: #f8f9fa;
+  }
+  
+  .nav-link {
+    color: #333;
+  }
+  
+  .nav-link.active {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #dee2e6;
+    border-bottom-color: transparent;
+  }
+  
