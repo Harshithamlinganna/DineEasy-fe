@@ -17,11 +17,11 @@
           <mat-card-content>
             <h5 class="card-title">{{ restaurant.name }}</h5>
             <div class="d-flex justify-content-between mb-2">
-              <p class="small-text text-secondary">Rating: {{ restaurant.rating }}</p>
-              <p class="small-text text-secondary">Reviews: {{ restaurant.reviews }}</p>
+              <p class="small-text text-secondary info">Rating: {{ restaurant.rating }}</p>
+              <p class="small-text text-secondary info">Reviews: {{ restaurant.reviews }}</p>
             </div>
-            <p class="text-truncate">Cuisines: {{ restaurant.cuisines }}</p>
-            <button mat-button color="primary" [routerLink]="['/restaurants', restaurant.resId, 'overview']">View Restaurant</button>
+            <p class="text-truncate info">Cuisines: {{ restaurant.cuisines }}</p>
+            <button mat-button color="primary" [routerLink]="['/restaurants', restaurant.resId, 'overview']" class="view-restaurant">View Restaurant</button>
           </mat-card-content>
         </mat-card>
       </div>

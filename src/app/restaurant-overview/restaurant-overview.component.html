@@ -2,67 +2,84 @@
   <div class="row section-spacing">
     <div class="col-md-11">
       <h2>{{ restaurant.name }}</h2>
-      <br>
+      <br />
       <div class="row">
         <div class="col-md-3">
-          <div class="icon-container"><mat-icon class="icon-yellow">star</mat-icon><strong>Ratings: </strong> {{
-            restaurant.rating }}</div>
+          <div class="icon-container">
+            <mat-icon class="icon-yellow">star</mat-icon><strong>Ratings: </strong> {{ restaurant.rating }}
+          </div>
         </div>
         <div class="col-md-3">
-          <div class="icon-container"><mat-icon class="icon-grey">comment</mat-icon> <strong>Reviews: </strong> {{
-            restaurant.reviews }}</div>
+          <div class="icon-container">
+            <mat-icon class="icon-grey">comment</mat-icon>
+            <strong>Reviews: </strong> {{ restaurant.reviews }}
+          </div>
         </div>
         <div class="col-md-3">
-          <div class="icon-container"><mat-icon class="icon-grey">attach_money</mat-icon> <strong>Cost: </strong> {{
-            restaurant.cost }}</div>
+          <div class="icon-container">
+            <mat-icon class="icon-grey">attach_money</mat-icon>
+            <strong>Cost: </strong> {{ restaurant.cost }}
+          </div>
         </div>
         <div class="col-md-3">
-          <div class="icon-container"><strong>Cuisines: </strong> {{ restaurant.cuisines }}</div>
+          <div class="icon-container">
+            <strong>Cuisines: </strong> {{ restaurant.cuisines }}
+          </div>
         </div>
       </div>
     </div>
-    <br>
+    <br />
     <div class="row line-section section-spacing shadow-box">
       <h3>About</h3>
       <div class="col-md-6">
-        <p>
+        <p></p>
         <div class="icon-container">
-          <mat-icon class="icon-blue">phone</mat-icon> 
-          <strong class="contact">Contact:</strong> {{
-          restaurant.contact }}</div>
-        <p>
-        <div class="icon-container"><mat-icon class="icon-grey">location_city</mat-icon> <strong>Neighborhood:</strong>
-          {{ restaurant.neighborhood }}</div>
-        <p>
-        <div class="icon-container"><mat-icon class="icon-grey">schedule</mat-icon> <strong>Hours:</strong> {{
-          restaurant.hours }}</div>
+          <div class="icon-info">
+            <mat-icon class="icon-blue">phone</mat-icon>
+            <strong class="heading">Contact:</strong>
+          </div>
+          <span class="info-text">{{ restaurant.contact }}</span>
+        </div>
+        <p></p>
+        <div class="icon-container">
+          <div class="icon-info">
+            <mat-icon class="icon-grey">location_city</mat-icon>
+            <strong class="heading">Neighborhood:</strong>
+          </div>
+          <span class="info-text">{{ restaurant.neighborhood }} </span>
+        </div>
+        <p></p>
+        <div class="icon-container">
+          <div class="icon-info">
+          <mat-icon class="icon-grey">schedule</mat-icon>
+          <strong class="heading">Hours:</strong> 
+          </div>
+          <span class="info-text">{{ restaurant.hours }} </span>
+        </div>
       </div>
       <div class="col-md-6 justify-content-end">
-        <p>
-          <mat-icon class="icon-green">local_parking</mat-icon><strong>Parking Details: </strong> {{
-          restaurant.parkingdetails }}
-        <p>
-        <div class="icon-container"><strong>Valet Parking:</strong> {{ restaurant.isValetPark ? 'Yes' : 'No' }}</div>
+        <div class="icon-container">
+          <div class="icon-info">
+            <mat-icon class="icon-green">local_parking</mat-icon>
+            <strong class="heading">Parking Info: </strong>
+          </div>
+          <span class="info-text">{{ restaurant.parkingdetails }} </span>
+        </div>
+          <!-- <div class="icon-info">
+          <mat-icon class="icon-green">local_parking</mat-icon>
+          <strong class="heading">Parking Details: </strong>
+        </div>
+          {{ restaurant.parkingdetails }} -->
+        
+
+        <p></p>
+        <div class="icon-container">
+          <div class="icon-info">
+          <strong class="heading">Valet Parking:</strong>
+         <span class="info-text"> {{ restaurant.isValetPark ? "Yes" : "No" }} </span>
+          
+        </div>
       </div>
     </div>
   </div>
 </div>
-<!-- <div class="row line-section">
-      <h3>About</h3>
-      <p>
-        <mat-icon class="icon-blue">phone</mat-icon> <strong>Contact:</strong> {{ restaurant.contact }}
-      </p>
-      <p>
-        <mat-icon class="icon-grey">location_city</mat-icon> <strong>Neighborhood:</strong> {{ restaurant.neighborhood }}
-      </p>
-      <p>
-        <mat-icon class="icon-grey">schedule</mat-icon> <strong>Hours:</strong> {{ restaurant.hours }}
-      </p>
-      <p>
-        <mat-icon class="icon-green">local_parking</mat-icon> <strong>Parking Details:</strong> {{ restaurant.parkingdetails }}
-      </p>
-      <p>
-        <strong>Valet Parking:</strong> {{ restaurant.isValetPark ? 'Yes' : 'No' }}
-      </p>
-    </div> -->
-

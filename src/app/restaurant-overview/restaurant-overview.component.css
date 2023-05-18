@@ -55,6 +55,19 @@
   font-weight: bold;
   margin-bottom: 10px;
 }
-.contact {
+.heading {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: small;
+  font-weight: 800;
+}
+.icon-info{
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  gap: 10px;
+}
+.info-text {
+  color: grey;
   text-transform: uppercase;
 }
