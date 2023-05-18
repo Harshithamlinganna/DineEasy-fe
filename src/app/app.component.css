@@ -1,0 +1,26 @@
+/* styles.css */
+.custom-image {
+    width: 100vw;
+    height:80vh;
+  }
+  
+  .navbar {
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+  }
+  
+  .navbar-left img {
+    width: 100px;
+  }
+  
+  .navbar-right button {
+    margin-left: 10px;
+  }

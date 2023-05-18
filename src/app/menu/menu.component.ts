@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import IMenuModelAngular from '../interfaces/IMenuModelAngular';
 import { MenuService } from '../service/menu.service';
 import { Observable, of} from 'rxjs';
+import IMenuItemsModelAngular from '../interfaces/IMenuItemsModelAngular';
 
 @Component({
   selector: 'app-menu',

@@ -10,7 +10,11 @@ export class RestaurantService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getItems() {
+  getAllRestaurants() {
     return this.httpClient.get<IRestaurantModelAngular[]>(this.hostUrl + 'restaurants');
+  }
+
+  getRestaurantDetailsById(index: string){
+    return this.httpClient.get<IRestaurantModelAngular>(this.hostUrl + 'restaurants/' + index)
   }
 }
