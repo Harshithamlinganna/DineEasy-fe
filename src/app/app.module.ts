@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { RestaurantOverviewComponent } from './restaurant-overview/restaurant-overview.component';
+import { OrderComponent } from './order/order.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { RestaurantOverviewComponent } from './restaurant-overview/restaurant-ov
     MenuItemsComponent,
     RestaurantsComponent,
     RestaurantComponent,
-    RestaurantOverviewComponent
+    RestaurantOverviewComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
