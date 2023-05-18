@@ -1,31 +1,60 @@
+.container {
+  margin-top: 40px;
+}
+
 .image-width {
-    width: 100%;
-    height: auto;
-  }
+  width: 100%;
+  height: auto;
+}
 
-  .section-spacing {
-    margin-top: 40px;
-    margin-bottom: 1px;
-  }
+.section-spacing {
+  margin-bottom: 20px;
+}
 
-  .line-section {
-    border-top: 1px solid rgb(172, 165, 165);
-    margin: 20px 0;
-  }
+.line-section {
+  border-top: 1px solid rgb(172, 165, 165);
+  margin: 20px 0;
+}
 
-  .icon-yellow {
-    color:goldenrod;
-  }
-  
-  .icon-blue {
-    color: navy;
-  }
-  
-  .icon-grey {
-    color: grey;
-  }
+.icon-yellow {
+  color: rgb(218, 122, 32);
+}
 
-  .icon-green {
-    color: green;
-  }
-  
+.icon-blue {
+  color: navy;
+}
+
+.icon-grey {
+  color: grey;
+}
+
+.icon-green {
+  color: green;
+}
+
+.shadow-box {
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.icon-container mat-icon {
+  margin-right: 5px;
+}
+
+.restaurant-name {
+  color: #333333;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.contact {
+  text-transform: uppercase;
+}

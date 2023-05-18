@@ -12,17 +12,19 @@ import { ActivatedRoute } from '@angular/router';
 export class RestaurantsComponent {
   resId: string;
   restaurants: Observable<IRestaurantModelAngular[]> ;
+  showAllRestaurant: IRestaurantModelAngular[];
 
   constructor(private restaurantService: RestaurantService) {}
 
   ngOnInit() {
     this.restaurantService.getAllRestaurants().subscribe(data => {
+      this.showAllRestaurant = data;
       this.restaurants = of(data.slice(0, 4));
     });
   }
 
   showAllCards() {
-    
+    this.restaurants = of(this.showAllRestaurant);
   }
 
 }

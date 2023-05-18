@@ -1,25 +1,30 @@
-<div class="container">
+<body>
+  <div class="container">
     <!-- Restaurants section -->
     <div class="row section-spacing">
       <div class="col-md-11">
-        <h2>Available for Dining</h2>
+        <h2>AVAILABLE FOR DINING</h2>
       </div>
       <div class="col-md">
-        <a href="#" (click)="showAllCards()">See All</a>
+        <a class="btn btn-link" (click)="showAllCards()">See All</a>
       </div>
     </div>
     <hr class="line-section">
-    <div class="row justify-content-start section-spacing">
-      <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let restaurant of (restaurants | async)">
-        <mat-card>
-          <img mat-card-image [src]="restaurant.image" alt="Restaurant Image">
+    <div class="row justify-content-start d-flex flex-wrap section-spacing">
+      <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let restaurant of restaurants | async">
+        <mat-card class="card h-100">
+          <img mat-card-image class="img-width" [src]="restaurant.image" alt="Restaurant Image">
           <mat-card-content>
-            <h5>{{ restaurant.name }}</h5>
-            <p>Cuisines: {{ restaurant.cuisines }}</p>
-            <button mat-button color="primary" [routerLink]= "['/restaurants', restaurant.resId, 'overview']">View Restaurant</button>
+            <h5 class="card-title">{{ restaurant.name }}</h5>
+            <div class="d-flex justify-content-between mb-2">
+              <p class="small-text text-secondary">Rating: {{ restaurant.rating }}</p>
+              <p class="small-text text-secondary">Reviews: {{ restaurant.reviews }}</p>
+            </div>
+            <p class="text-truncate">Cuisines: {{ restaurant.cuisines }}</p>
+            <button mat-button color="primary" [routerLink]="['/restaurants', restaurant.resId, 'overview']">View Restaurant</button>
           </mat-card-content>
         </mat-card>
       </div>
     </div>
-</div>
-  
+  </div>
+</body>
