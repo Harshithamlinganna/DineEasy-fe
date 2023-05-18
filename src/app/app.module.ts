@@ -11,7 +11,7 @@ import { MenuComponent } from './menu/menu.component';
 import { MenuService } from './service/menu.service';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { MenuItemsService } from './service/menu-items.service';
-
+import { FormsModule } from '@angular/forms'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
@@ -28,6 +28,7 @@ import { RestaurantOverviewComponent } from './restaurant-overview/restaurant-ov
     RestaurantOverviewComponent
   ],
   imports: [
+    FormsModule, 
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

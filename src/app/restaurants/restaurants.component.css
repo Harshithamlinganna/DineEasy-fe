@@ -20,7 +20,9 @@
   background-color: #F8F6F4;
     ;
 }
-
+.card-title{
+  margin-top: 3px;
+}
 .card:hover {
   transform: scale(1.09);
 }
@@ -40,4 +42,39 @@
   font-size: medium;
   font-weight: 600;
   letter-spacing: 1px;
+}
+.search-input {
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #f8f9fa;
+  box-shadow: none;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  padding: 8px 12px;
+}
+.search-input:focus {
+  border-color: #f8f9fa
+}
+.clear-button {
+  border-radius: 0;
+  border: none;
+  background-color: #f8f9fa;
+  color: #495057;
+  font-size: 14px;
+  padding: 8px 12px;
+}
+
+.clear-button:hover {
+  background-color: #b0d0f0;
+}
+.input-group{
+  gap: 1cm;
+}
+
+.dining{
+  text-transform: uppercase;
+  font-size:xx-large;
+  letter-spacing: 5px;
 }
