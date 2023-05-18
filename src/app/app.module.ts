@@ -11,6 +11,7 @@ import { MenuComponent } from './menu/menu.component';
 import { MenuService } from './service/menu.service';
 import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { MenuItemsService } from './service/menu-items.service';
+import { OrderService } from './service/order.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
@@ -39,7 +40,7 @@ import { OrderItemsComponent } from './order-items/order-items.component';
     MatCardModule,
     MatIconModule
   ],
-  providers: [RestaurantService, MenuService, MenuItemsService],
+  providers: [RestaurantService, MenuService, MenuItemsService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
