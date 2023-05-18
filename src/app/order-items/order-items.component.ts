@@ -58,10 +58,30 @@ export class OrderItemsComponent {
     // this.OrderService$.postOrder(this.OrderItems, this.resId).subscribe(response => {
     // })
     console.log("OrderSubmitted");
-    const data = this.menuItems.filter(item => item.selected)
     this.menuItems
-      .subscribe((menuItemsData: IMenuItemsModelAngular[]) => {
-        const selectedItems = menuItemsData[0].menu.filter(item => item.selected);
-        this.selectedItems = selectedItems;})
+      // .subscribe((menuItemsData: IMenuItemsModelAngular[]) => {
+      //   const selectedItems = menuItemsData[0]?.menu.filter(item => item.selected);
+      //   this.selectedItems = selectedItems});
+
+      //   this.itemIds = this.selectedItems.map((item: { itemId: any; }) => item.itemId);
+      this.menuItems.subscribe((menuItemsData: IMenuItemsModelAngular[]) => {
+        console.log(this.menuItems);
+        const selectedItems = menuItemsData[0]?.menu.filter(item => item.selected);
+        this.selectedItems = selectedItems;
+        this.itemIds = selectedItems.map(item => item.itemId);
+      });
+
+        //calculate quantity
+        this.quantity = this.itemIds.length;
+
+        let data = {
+          "customerId": "asdasdasd",
+          quantity: this.quantity,
+          itemIds: this.itemIds,
+        }
+        console.log(data);
+        this.OrderService$.postOrder(data, this.resId, this.menuId).subscribe(response => {
+          console.log(response);
+        });
   }
 }
