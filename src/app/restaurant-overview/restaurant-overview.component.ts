@@ -18,9 +18,10 @@ export class RestaurantOverviewComponent {
     ) {}
   
     ngOnInit() {
-      const id = this.route.parent?.snapshot.paramMap.get('id')!;
-      console.log("id ", id);
-      this.service.getRestaurantDetailsById(id).subscribe(
+      
+      const resId = this.route.parent?.snapshot.paramMap.get('resId')!;
+      console.log("resId ", resId);
+      this.service.getRestaurantDetailsById(resId).subscribe(
         data => {
           this.restaurant = data
           console.log("restaurant", this.restaurant.name)

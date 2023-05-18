@@ -1,0 +1,7 @@
+.menu-navigation-bar {
+    display: none;
+  }
+  
+  .menu-navigation-bar.active {
+    display: block;
+  }

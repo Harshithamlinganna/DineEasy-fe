@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import IMenuItemsModelAngular from '../interfaces/IMenuItemsModelAngular';
 import { Observable, of } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
@@ -12,15 +12,33 @@ import { MenuItemsService }  from '../service/menu-items.service'
 })
 export class MenuItemsComponent {
   menuItems: Observable<IMenuItemsModelAngular[]>;
+  resId: string | null = null;
+  constructor(
+    private menuItemsService$: MenuItemsService, 
+    private route: ActivatedRoute
+  ) {}
+  
+  ngOnInit():void {
 
-  constructor(private menuItemsService$: MenuItemsService, private route: ActivatedRoute) 
-  { 
-    const resId = route.snapshot.params['resId'];
-    const menuId = route.snapshot.params['menuId'];
-
-    this.menuItemsService$.getMenuItems(resId, menuId).subscribe((data: IMenuItemsModelAngular[]) => {
-      this.menuItems = of(data);
+    // Get resId param from parent component [Menu]
+    this.route.parent?.params.subscribe(params => {
+      this.resId = params['resId'];
     });
-  }
 
+    this.route.params.subscribe(params => {
+
+      // Get the menuId param from the current route
+      const menuId = params['menuId'];
+
+      // Request menu items for that restaurant using the menu items service
+      if(this.resId && menuId)
+      {
+        this.menuItemsService$.getMenuItems(this.resId, menuId).subscribe((data: IMenuItemsModelAngular[]) => {
+          this.menuItems = of(data);
+        });
+      }
+    });
+
+   }
 }
+
