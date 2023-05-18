@@ -1,9 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import IMenuModelAngular from '../interfaces/IMenuModelAngular';
 import { MenuService } from '../service/menu.service';
 import { Observable, of} from 'rxjs';
-import IMenuItemsModelAngular from '../interfaces/IMenuItemsModelAngular';
 
 @Component({
   selector: 'app-menu',
@@ -21,8 +20,9 @@ export class MenuComponent implements OnInit {
       this.menu = of(data);
     });
   }
-
-  selectMenu(menu: IMenuModelAngular) {
+  
+  // Retrive all menu for a restaurant
+  retrieveSelectedMenu(menu: IMenuModelAngular) {
     this.router.navigate(['/restaurants', menu.resId, 'menu', menu.menuId, 'items']);
   }
 

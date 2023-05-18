@@ -11,15 +11,18 @@ const routes: Routes = [
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent},
   { path: 'restaurants', component: RestaurantsComponent},
-  { path: 'restaurants/:id', component: RestaurantComponent},
-  { path: 'restaurants/:id/overview', component: RestaurantOverviewComponent},
+  { path: 'restaurants/:id', component: RestaurantComponent, 
+    children: [
+                { path: '', redirectTo: '/overview', pathMatch: 'full' },
+                { path: 'overview', component: RestaurantOverviewComponent }
+              ]
+  },
   { path: 'restaurants/:resId/menu', component: MenuComponent},
   { path: 'restaurants/:resId/menu/:menuId/items', component: MenuItemsComponent}
-
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), [RouterModule.forChild(routes)]],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
