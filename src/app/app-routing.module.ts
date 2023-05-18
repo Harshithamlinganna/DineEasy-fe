@@ -43,14 +43,7 @@ const routes: Routes = [
       }
     ]
   },
-
-  { path: 'restaurants/:id', component: RestaurantComponent, children: [
-    {path: '', redirectTo: '/overview', pathMatch: 'full' },
-    { path: 'overview', component: RestaurantOverviewComponent },
-    { path: 'order', component: OrderComponent }
-  ]}
 ];
-  
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
