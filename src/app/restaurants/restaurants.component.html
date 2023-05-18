@@ -12,6 +12,7 @@
     <hr class="line-section">
     <div class="row justify-content-start d-flex flex-wrap section-spacing">
       <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let restaurant of (restaurants | async)">
+<<<<<<< HEAD
         <mat-card class= "card h-100">
           <img mat-card-image class="img-width" [src]="restaurant.image" alt="Restaurant Image">
           <mat-card-content >
@@ -21,6 +22,13 @@
               <p class="small-text text-secondary">Reviews: {{ restaurant.reviews }}</p>
             </div>
             <p class="text-truncate">Cuisines: {{ restaurant.cuisines }}</p>
+=======
+        <mat-card>
+          <img mat-card-image [src]="restaurant.image" alt="Restaurant Image">
+          <mat-card-content>
+            <h5>{{ restaurant.name }}</h5>
+            <p>Cuisines: {{ restaurant.cuisines }}</p>
+>>>>>>> c4764ffbee34b8749cfa15bdd234bc9d60ab0751
             <button mat-button color="primary" [routerLink]= "['/restaurants', restaurant.resId, 'overview']">View Restaurant</button>
           </mat-card-content>
         </mat-card>
