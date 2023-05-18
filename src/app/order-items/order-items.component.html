@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row section-spacing">
       <div class="col-md-11">
-        <form (click)="sendOrder()">
+        <form (submit)="sendOrder()">
             <table class="table">
               <thead>
                 <tr>
@@ -18,7 +18,7 @@
                 <tr *ngFor="let menuItem of (menuItems | async)?.[0]?.menu">
                   <td>
                     <label>
-                      <input type="checkbox" name="menuItem" [value]="menuItem?.itemId"/>
+                      <input type="checkbox" name="menuItem" [value]="menuItem" />
                     </label>
                   </td>
                   <td>{{ menuItem.category}}</td>
