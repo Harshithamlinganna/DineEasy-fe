@@ -27,7 +27,7 @@ export class ReservationComponent {
       time: this.time,
       phoneNumber: this.phone,
       reservationId: '',
-      customerId: '',
+      customerId: '1',
       resId: this.route.parent?.snapshot.paramMap.get('id')!,
       status: 'pending',
       tableNumber: 0,
