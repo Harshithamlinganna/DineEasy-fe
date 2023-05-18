@@ -9,6 +9,7 @@ import { RestaurantOverviewComponent } from './restaurant-overview/restaurant-ov
 import { OrderComponent } from './order/order.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
+import { OrderItemsComponent } from './order-items/order-items.component';
 
 const routes: Routes = [
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
@@ -40,6 +41,14 @@ const routes: Routes = [
       },
       { path: 'reservation-details',
       component: ReservationDetailsComponent
+      },
+      {
+        path: 'order',
+        component: OrderComponent,
+      },
+      {
+        path: 'menu/:menuId/items/order',
+        component: OrderItemsComponent,
       }
     ]
   },

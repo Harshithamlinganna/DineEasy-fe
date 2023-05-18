@@ -12,23 +12,26 @@
       </header>
       <div class="container">
         <div class="row section-spacing">
-          <table>
-            <thead>
-              <tr>
-                <th>Item Name</th>
-                <th>Category</th>
-                <th>Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let menuItem of (menuItems | async)?.[0]?.menu">
-                <td>{{ menuItem.name }}</td>
-                <td>{{ menuItem.category }}</td>
-                <td>${{ menuItem.price }}</td>
-              </tr>
-            </tbody>
-          </table>          
+          <div class="col-md-11">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let menuItem of (menuItems | async)?.[0]?.menu">
+                  <td>{{ menuItem.category }}</td>
+                  <td>{{ menuItem.name }}</td>
+                  <td>{{ menuItem.price }}</td>
+                </tr>
+              </tbody>
+            </table>
+            <router-outlet></router-outlet>
         </div>
       </div>
+    </div>>
   </body>  
 </html>
