@@ -7,6 +7,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RestaurantService } from './service/restaurant.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MenuComponent } from './menu/menu.component';
+import { MenuService } from './service/menu.service';
+import { MenuItemsComponent } from './menu-items/menu-items.component';
+import { MenuItemsService } from './service/menu-items.service';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
@@ -16,6 +21,8 @@ import { RestaurantOverviewComponent } from './restaurant-overview/restaurant-ov
   declarations: [
     AppComponent,
     HomeComponent,
+    MenuComponent,
+    MenuItemsComponent,
     RestaurantsComponent,
     RestaurantComponent,
     RestaurantOverviewComponent
@@ -28,7 +35,7 @@ import { RestaurantOverviewComponent } from './restaurant-overview/restaurant-ov
     MatCardModule,
     MatIconModule
   ],
-  providers: [RestaurantService],
+  providers: [RestaurantService, MenuService, MenuItemsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
