@@ -42,7 +42,6 @@ const routes: Routes = [
     { path: 'order', component: OrderComponent }
   ]}
 ];
-  
 
 @NgModule({
   imports: [RouterModule.forRoot(routes), [RouterModule.forChild(routes)]],
