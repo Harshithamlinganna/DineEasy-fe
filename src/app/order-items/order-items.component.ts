@@ -3,19 +3,23 @@ import { MenuItemsService }  from '../service/menu-items.service';
 import IMenuItemsModelAngular from '../interfaces/IMenuItemsModelAngular';
 import { Observable, of } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { OrderService } from '../service/order.service';
 
 @Component({
   selector: 'app-order-items',
   templateUrl: './order-items.component.html',
   styleUrls: ['./order-items.component.css'],
-  providers: [MenuItemsService]
+  providers: [MenuItemsService, OrderService]
 })
 export class OrderItemsComponent {
-  menuItems: Observable<IMenuItemsModelAngular[]>;
+  menuItems: Observable<IMenuItemsModelAngular[]>
   resId: string | null = null;
+  OrderItems: any = {};
+  selectedItems: { itemId: String; category: String; name: String; price: number; is_veg: boolean; ingredients: String; }[];
 
   constructor(
     private menuItemsService$: MenuItemsService, 
+    private OrderService$: OrderService,
     private route: ActivatedRoute
   ) {}
 
@@ -25,7 +29,7 @@ export class OrderItemsComponent {
     this.route.parent?.params.subscribe(params => {
       this.resId = params['resId'];
     });
-    
+
     this.route.params.subscribe(params => {
 
       // Get the menuId param from the current route
@@ -39,5 +43,17 @@ export class OrderItemsComponent {
         });
       }
     });
+  }
+
+  sendOrder()
+  {
+    // this.OrderService$.postOrder(this.OrderItems, this.resId).subscribe(response => {
+    // })
+    console.log("OrderSubmitted");
+    const data = this.menuItems.filter(item => item.selected)
+    this.menuItems
+      .subscribe((menuItemsData: IMenuItemsModelAngular[]) => {
+        const selectedItems = menuItemsData[0].menu.filter(item => item.selected);
+        this.selectedItems = selectedItems;})
   }
 }
