@@ -29,7 +29,8 @@ import { OrderItemsComponent } from './order-items/order-items.component';
     MenuItemsComponent,
     RestaurantsComponent,
     RestaurantComponent,
-    RestaurantOverviewComponent
+    RestaurantOverviewComponent,
+    OrderComponent
   ],
   imports: [
     FormsModule,
