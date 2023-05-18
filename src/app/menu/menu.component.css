@@ -1,0 +1,29 @@
+.nav.nav-tabs {
+    background-color: #f8f9fa;
+    margin-top: 1.4cm;
+    padding: 10px;
+    border-bottom: 2px solid #dee2e6;
+    display: flex;
+    justify-content: flex-start
+  }
+  .nav.nav-tabs .nav-item {
+    margin-right: 10px;
+  }
+
+  .nav.nav-tabs .nav-link {
+    color: #343a40;
+    border: none;
+    cursor: pointer;
+    border-radius: 0;
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  .nav.nav-tabs .nav-link.active {
+    background-color: #000000;
+    color: #fff;
+  }

@@ -36,6 +36,7 @@
 .view-restaurant{
   border-radius: 0.2cm;
   padding: 0.2cm;
+  border: #000000 1px solid;
 } 
 .info{
   text-transform: uppercase;
@@ -58,23 +59,35 @@
   border-color: #f8f9fa
 }
 .clear-button {
-  border-radius: 0;
-  border: none;
-  background-color: #f8f9fa;
-  color: #495057;
-  font-size: 14px;
-  padding: 8px 12px;
+  background-color: #f2fdf2; 
+  color: #000000;
+  transition: background-color 0.3s ease; 
+  text-decoration: none;
 }
 
 .clear-button:hover {
-  background-color: #b0d0f0;
+  background-color: #000000; 
+  color: #f2fdf2; 
+  border: #000000 1px solid;
 }
 .input-group{
   gap: 1cm;
 }
 
 .dining{
-  text-transform: uppercase;
   font-size:xx-large;
   letter-spacing: 5px;
+}
+
+.my-button {
+  background-color: #000000; 
+  color: #FFFFFF;
+  transition: background-color 0.3s ease; 
+  text-decoration: none;
+}
+
+.my-button:hover {
+  background-color: #f2fdf2; 
+  color: #000000; 
+  border: #000000 1px solid;
 }
