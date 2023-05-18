@@ -6,6 +6,7 @@ import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { RestaurantOverviewComponent } from './restaurant-overview/restaurant-overview.component';
+import { OrderComponent } from './order/order.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 
@@ -41,9 +42,15 @@ const routes: Routes = [
       component: ReservationDetailsComponent
       }
     ]
-  }
-  
+  },
+
+  { path: 'restaurants/:id', component: RestaurantComponent, children: [
+    {path: '', redirectTo: '/overview', pathMatch: 'full' },
+    { path: 'overview', component: RestaurantOverviewComponent },
+    { path: 'order', component: OrderComponent }
+  ]}
 ];
+  
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
