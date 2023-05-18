@@ -32,15 +32,13 @@ const routes: Routes = [
       {
         path: 'menu/:menuId/items', 
         component: MenuItemsComponent,
+      },
+      {
+        path: 'order',
+        component: OrderComponent,
       }
     ]
-  },
-
-  { path: 'restaurants/:id', component: RestaurantComponent, children: [
-    {path: '', redirectTo: '/overview', pathMatch: 'full' },
-    { path: 'overview', component: RestaurantOverviewComponent },
-    { path: 'order', component: OrderComponent }
-  ]}
+  }
 ];
 
 @NgModule({
