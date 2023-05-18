@@ -6,24 +6,36 @@
       <div class="row">
         <div class="col-md-3">
           <div class="icon-container">
-            <mat-icon class="icon-yellow">star</mat-icon><strong>Ratings: </strong> {{ restaurant.rating }}
+            <div class="icon-info">
+              <mat-icon class="icon-yellow">star</mat-icon>
+              <strong class="heading">Ratings:</strong>
+            </div>
+            <span class="info-text">{{ restaurant.rating }}</span>
           </div>
         </div>
         <div class="col-md-3">
           <div class="icon-container">
-            <mat-icon class="icon-grey">comment</mat-icon>
-            <strong>Reviews: </strong> {{ restaurant.reviews }}
+            <div class="icon-info">
+              <mat-icon class="icon-grey">comment</mat-icon>
+              <strong class="heading">Review:</strong>
+            </div>
+            <span class="info-text">{{ restaurant.reviews }}</span>
           </div>
         </div>
         <div class="col-md-3">
           <div class="icon-container">
-            <mat-icon class="icon-grey">attach_money</mat-icon>
-            <strong>Cost: </strong> {{ restaurant.cost }}
+            <div class="icon-info">
+              <mat-icon class="icon-green">attach_money</mat-icon>
+              <strong class="heading">Cost:</strong>
+            </div>
+            <span class="info-text">{{ restaurant.cost }}</span>
           </div>
         </div>
+       
         <div class="col-md-3">
           <div class="icon-container">
-            <strong>Cuisines: </strong> {{ restaurant.cuisines }}
+              <strong class="heading">Cuisine:</strong>
+            <span class="info-text">{{ restaurant.cuisines }}</span>
           </div>
         </div>
       </div>
@@ -51,8 +63,8 @@
         <p></p>
         <div class="icon-container">
           <div class="icon-info">
-          <mat-icon class="icon-grey">schedule</mat-icon>
-          <strong class="heading">Hours:</strong> 
+            <mat-icon class="icon-grey">schedule</mat-icon>
+            <strong class="heading">Hours:</strong>
           </div>
           <span class="info-text">{{ restaurant.hours }} </span>
         </div>
@@ -65,19 +77,20 @@
           </div>
           <span class="info-text">{{ restaurant.parkingdetails }} </span>
         </div>
-          <!-- <div class="icon-info">
+        <!-- <div class="icon-info">
           <mat-icon class="icon-green">local_parking</mat-icon>
           <strong class="heading">Parking Details: </strong>
         </div>
           {{ restaurant.parkingdetails }} -->
-        
 
         <p></p>
         <div class="icon-container">
           <div class="icon-info">
-          <strong class="heading">Valet Parking:</strong>
-         <span class="info-text"> {{ restaurant.isValetPark ? "Yes" : "No" }} </span>
-          
+            <strong class="heading">Valet Parking:</strong>
+            <span class="info-text">
+              {{ restaurant.isValetPark ? "Yes" : "No" }}
+            </span>
+          </div>
         </div>
       </div>
     </div>

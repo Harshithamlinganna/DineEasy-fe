@@ -1,15 +1,5 @@
 <body>
   <div class="container">
-    <!-- Restaurants section -->
-    <div class="row section-spacing">
-      <div class="col-md-11">
-        <h2 class="dining">AVAILABLE FOR DINING</h2>
-      </div>
-      <div class="col-md">
-        <a class="btn btn-link" (click)="showAllCards()">See All</a>
-      </div>
-    </div>
-
     <!-- Search input field -->
     <div class="row section-spacing">
       <div class="col-md-6">
@@ -17,6 +7,15 @@
           <input class="form-control search-input" type="text" placeholder="Search your favorite Restaurant or Cuisine" [(ngModel)]="searchTerm" (input)="filterRestaurants()">
           <button class="btn btn-outline-secondary clear-button" type="button" (click)="clearSearch()">CLEAR</button>
         </div>
+      </div>
+    </div>
+     <!-- Restaurants section -->
+     <div class="row section-spacing">
+      <div class="col-md-11">
+        <h2 class="dining">Available For Dining</h2>
+      </div>
+      <div class="col-md">
+        <a class="btn btn-link my-button" (click)="showAllCards()">See All</a>
       </div>
     </div>
     
