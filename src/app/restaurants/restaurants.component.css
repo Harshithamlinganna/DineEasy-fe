@@ -46,8 +46,8 @@
 .search-input {
   border-radius: 5px;
   outline: none;
-  border: none;
-  border-bottom: 2px solid #f8f9fa;
+  
+  border: 2px solid #b3b3b3;
   box-shadow: none;
   font-size: 16px;
   font-weight: 600;
