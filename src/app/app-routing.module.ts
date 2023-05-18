@@ -7,6 +7,7 @@ import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { RestaurantOverviewComponent } from './restaurant-overview/restaurant-overview.component';
 import { OrderComponent } from './order/order.component';
+import { OrderItemsComponent } from './order-items/order-items.component';
 
 const routes: Routes = [
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: 'order',
         component: OrderComponent,
+      },
+      {
+        path: 'menu/:menuId/items/order',
+        component: OrderItemsComponent,
       }
     ]
   }

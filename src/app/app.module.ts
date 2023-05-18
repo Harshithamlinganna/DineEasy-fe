@@ -17,6 +17,7 @@ import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { RestaurantOverviewComponent } from './restaurant-overview/restaurant-overview.component';
 import { OrderComponent } from './order/order.component';
+import { OrderItemsComponent } from './order-items/order-items.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { OrderComponent } from './order/order.component';
     RestaurantsComponent,
     RestaurantComponent,
     RestaurantOverviewComponent,
-    OrderComponent
+    OrderComponent,
+    OrderItemsComponent
   ],
   imports: [
     BrowserModule,

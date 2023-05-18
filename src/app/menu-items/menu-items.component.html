@@ -13,11 +13,22 @@
       <div class="container">
         <div class="row section-spacing">
           <div class="col-md-11">
-            <ul>
-              <li *ngFor="let menuItem of (menuItems | async)?.[0]?.menu">
-                {{ menuItem.category }} - {{ menuItem.name }} - {{ menuItem.price }}
-              </li>
-            </ul>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th>Name</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let menuItem of (menuItems | async)?.[0]?.menu">
+                  <td>{{ menuItem.category }}</td>
+                  <td>{{ menuItem.name }}</td>
+                  <td>{{ menuItem.price }}</td>
+                </tr>
+              </tbody>
+            </table>
             <router-outlet></router-outlet>
         </div>
       </div>
