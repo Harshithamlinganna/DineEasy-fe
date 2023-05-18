@@ -19,8 +19,11 @@ import { FormsModule } from '@angular/forms';
 
 
 export class OrderItemsComponent {
-  menuItems: Observable<IMenuItemsModelAngular[]>;
+  menuItems: Observable<IMenuItemsModelAngular[]>
+  menuId: string | null = null;
   resId: string | null = null;
+  OrderItems: any = {};
+  selectedItems: { itemId: String; category: String; name: String; price: number; is_veg: boolean; ingredients: String; }[];
 
   constructor(
     private menuItemsService$: MenuItemsService, 
@@ -48,5 +51,17 @@ export class OrderItemsComponent {
         });
       }
     });
+  }
+
+  sendOrder()
+  {
+    // this.OrderService$.postOrder(this.OrderItems, this.resId).subscribe(response => {
+    // })
+    console.log("OrderSubmitted");
+    const data = this.menuItems.filter(item => item.selected)
+    this.menuItems
+      .subscribe((menuItemsData: IMenuItemsModelAngular[]) => {
+        const selectedItems = menuItemsData[0].menu.filter(item => item.selected);
+        this.selectedItems = selectedItems;})
   }
 }

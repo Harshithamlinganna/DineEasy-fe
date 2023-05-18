@@ -18,7 +18,7 @@
                 <tr *ngFor="let menuItem of (menuItems | async)?.[0]?.menu">
                   <td>
                     <label>
-                      <input type="checkbox" name="menuItem" [value]="menuItem" />
+                      <input type="checkbox" name="menuItem" [value]="menuItem?.itemId"/>
                     </label>
                   </td>
                   <td>{{ menuItem.category}}</td>
