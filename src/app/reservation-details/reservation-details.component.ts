@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ReservationDetailsComponent implements OnInit {
   reservationId: string;
   tableNumber: number;
+  resId: string;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -16,6 +17,7 @@ export class ReservationDetailsComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.reservationId = params['reservationId'];
       this.tableNumber = +params['tableNumber'];
+      this.resId =params['resId'];
     });
   }
 }

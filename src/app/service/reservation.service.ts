@@ -12,6 +12,7 @@ export class ReservationService {
   constructor(private httpClient: HttpClient) { }
 
   createReservation(reservation: IReservationModelAngular): Observable<IReservationModelAngular> {
+    console.log("reservation", reservation)
     return this.httpClient.post<IReservationModelAngular>(this.hostUrl + 'addreservation', reservation);
   }
 }

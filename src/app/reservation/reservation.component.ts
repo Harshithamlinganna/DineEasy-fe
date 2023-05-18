@@ -28,12 +28,11 @@ export class ReservationComponent {
       phoneNumber: this.phone,
       reservationId: '',
       customerId: '',
-      resId: '',
+      resId: this.route.parent?.snapshot.paramMap.get('id')!,
       status: 'pending',
       tableNumber: 0,
     };
-    const id = this.route.parent?.snapshot.paramMap.get('id')!;
-    console.log("Reservation id ", id);
+    
 
     this.reservationService.createReservation(reservation).subscribe(
       (response) => {
@@ -42,7 +41,7 @@ export class ReservationComponent {
         this.isReservationConfirmed = true;
         this.router.navigate(['/reservation-details'], {
           
-          queryParams: { reservationId: this.reservationId, tableNumber: this.tableNumber,  }
+          queryParams: {reservationId: this.reservationId, tableNumber: this.tableNumber}
         });
         console.log(response);
         console.log(response.reservationId);
