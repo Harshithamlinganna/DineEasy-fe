@@ -14,7 +14,7 @@ export class RestaurantService {
     return this.httpClient.get<IRestaurantModelAngular[]>(this.hostUrl + 'restaurants');
   }
 
-  getRestaurantDetailsById(index: string){
-    return this.httpClient.get<IRestaurantModelAngular>(this.hostUrl + 'restaurants/' + index)
+  getRestaurantDetailsById(id: string){
+    return this.httpClient.get<IRestaurantModelAngular>(this.hostUrl + 'restaurants/' + id)
   }
 }
