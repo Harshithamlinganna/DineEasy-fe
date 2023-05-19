@@ -1,23 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { MenuItemsService }  from '../service/menu-items.service';
 import IMenuItemsModelAngular from '../interfaces/IMenuItemsModelAngular';
 import { Observable, of } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { OrderService } from '../service/order.service';
 import { IOrderModel } from '../interfaces/IOrderModelAngular';
+import { FormsModule } from '@angular/forms';
+
+
+
 
 @Component({
   selector: 'app-order-items',
   templateUrl: './order-items.component.html',
   styleUrls: ['./order-items.component.css'],
-  providers: [MenuItemsService, OrderService]
+  providers: [MenuItemsService, OrderService],
 })
+
+
 export class OrderItemsComponent {
   menuItems: Observable<IMenuItemsModelAngular[]>
   menuId: string | null = null;
   resId: string | null = null;
   quantity: Number;
-  itemIds: String[];
+  itemIds: String[] | null;
   selectedItems: any;
 
   constructor(
@@ -77,7 +83,8 @@ export class OrderItemsComponent {
       console.log("OrderSubmitted");
   
       const queryparams = this.route.snapshot.queryParamMap;
-      this.itemIds = queryparams.getAll('menuItem');
+      
+      this.itemIds = queryparams.has('menuItem') ? queryparams.getAll('menuItem') : [];
   
       //calculate quantity
       this.quantity = this.itemIds.length;
@@ -87,14 +94,15 @@ export class OrderItemsComponent {
         quantity: this.quantity,
         itemIds: this.itemIds,
       };
-
+  
       console.log(data);
       this.OrderService$.postOrder(data, this.resId, this.menuId).subscribe(response => {
         console.log(response);
       });
+    //});
     } catch (error) {
       console.error("Error while submitting order:", error);
     }
-  }  
+  }
   
 }
