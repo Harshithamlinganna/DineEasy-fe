@@ -6,4 +6,88 @@
   .section-spacing {
     margin-top: 40px;
     margin-bottom: 1px;
+    margin-bottom: 20px;
   }
+
+  .line-section {
+    border-top: 2px solid black;
+    margin: 5px 0;
+  }
+
+  .card {
+  transition: transform 0.5s;
+  cursor: pointer;
+  background-color: #F8F6F4;
+    ;
+}
+.card-title{
+  margin-top: 3px;
+}
+.card:hover {
+  transform: scale(1.09);
+}
+.text{
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight:lighter;
+  letter-spacing: 0.2em;
+}
+
+.view-restaurant{
+  border-radius: 0.2cm;
+  padding: 0.2cm;
+  border: #000000 1px solid;
+} 
+.info{
+  text-transform: uppercase;
+  font-size: medium;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.search-input {
+  border-radius: 5px;
+  outline: none;
+  
+  border: 2px solid #b3b3b3;
+  box-shadow: none;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  padding: 8px 12px;
+}
+.search-input:focus {
+  border-color: #f8f9fa
+}
+.clear-button {
+  background-color: #f2fdf2; 
+  color: #000000;
+  transition: background-color 0.3s ease; 
+  text-decoration: none;
+}
+
+.clear-button:hover {
+  background-color: #000000; 
+  color: #f2fdf2; 
+  border: #000000 1px solid;
+}
+.input-group{
+  gap: 1cm;
+}
+
+.dining{
+  font-size:xx-large;
+  letter-spacing: 5px;
+}
+
+.my-button {
+  background-color: #000000; 
+  color: #FFFFFF;
+  transition: background-color 0.3s ease; 
+  text-decoration: none;
+}
+
+.my-button:hover {
+  background-color: #f2fdf2; 
+  color: #000000; 
+  border: #000000 1px solid;
+}

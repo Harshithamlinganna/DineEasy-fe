@@ -1,25 +1,43 @@
-<div class="container">
-    <!-- Restaurants section -->
+<body>
+  <div class="container">
+    <!-- Search input field -->
     <div class="row section-spacing">
-      <div class="col-md-11">
-        <h2>Available for Dining</h2>
-      </div>
-      <div class="col-md">
-        <a href="#" (click)="showAllCards()">See All</a>
+      <div class="col-md-6">
+        <div class="input-group">
+          <input class="form-control search-input" type="text" placeholder="Search your favorite Restaurant or Cuisine" [(ngModel)]="searchTerm" (input)="filterRestaurants()">
+          <button class="btn btn-outline-secondary clear-button" type="button" (click)="clearSearch()">CLEAR</button>
+        </div>
       </div>
     </div>
+     <!-- Restaurants section -->
+     <div class="row section-spacing">
+      <div class="col-md-11">
+        <h2 class="dining">Available For Dining</h2>
+      </div>
+      <div class="col-md">
+        <a class="btn btn-link my-button" (click)="showAllCards()">See All</a>
+      </div>
+    </div>
+    
+
     <hr class="line-section">
-    <div class="row justify-content-start section-spacing">
-      <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let restaurant of (restaurants | async)">
-        <mat-card>
-          <img mat-card-image [src]="restaurant.image" alt="Restaurant Image">
+
+    <!-- Filtered restaurants list -->
+    <div class="row justify-content-start d-flex flex-wrap section-spacing">
+      <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let restaurant of filteredRestaurants | async">
+        <mat-card class="card h-100">
+          <img mat-card-image class="img-width" [src]="restaurant.image" alt="Restaurant Image">
           <mat-card-content>
-            <h5>{{ restaurant.name }}</h5>
-            <p>Cuisines: {{ restaurant.cuisines }}</p>
-            <button mat-button color="primary" [routerLink]= "['/restaurants', restaurant.resId, 'overview']">View Restaurant</button>
+            <h5 class="card-title">{{ restaurant.name }}</h5>
+            <div class="d-flex justify-content-between mb-2">
+              <p class="small-text text-secondary info">Rating: {{ restaurant.rating }}</p>
+              <p class="small-text text-secondary info">Reviews: {{ restaurant.reviews }}</p>
+            </div>
+            <p class="text-truncate info">Cuisines: {{ restaurant.cuisines }}</p>
+            <button mat-button color="primary" [routerLink]="['/restaurants', restaurant.resId, 'overview']" class="view-restaurant">View Restaurant</button>
           </mat-card-content>
         </mat-card>
       </div>
     </div>
-</div>
-  
+  </div>
+</body>

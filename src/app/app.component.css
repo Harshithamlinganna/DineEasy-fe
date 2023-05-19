@@ -3,9 +3,8 @@
     width: 100vw;
     height:80vh;
   }
-  
   .navbar {
-    background: transparent;
+    background: cadetblue;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,4 +22,47 @@
   
   .navbar-right button {
     margin-left: 10px;
+  }
+  
+  .fixed-footer {
+    margin-top: auto;
+    width: 100%;
+  }
+
+  .section-spacing {
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+
+  .dine-easy{
+    font-size: 20px;
+    font-weight:bold;
+    text-decoration: none;
+    color: black;
+    letter-spacing: 0.2em;
+  }
+
+  .search-custom {
+    color : rgb(74, 132, 213);
+    border-color:rgb(74, 132, 213);
+  }
+.buttons{
+  display: flex;
+  gap: 1cm;
+  text-transform: uppercase;
+}
+  .my-button {
+    background-color: #000000; 
+    color: #FFFFFF;
+    transition: background-color 0.3s ease; 
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: small;
+    letter-spacing: 2px;
+  }
+  
+  .my-button:hover {
+    background-color: #f2fdf2; 
+    color: #000000; 
+    border: #000000 1px solid;
   }

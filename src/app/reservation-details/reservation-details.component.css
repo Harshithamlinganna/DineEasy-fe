@@ -1,0 +1,17 @@
+.reservation-status {
+    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    margin-top: 20px;
+  }
+  
+  .reservation-status h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .reservation-status p {
+    font-size: 16px;
+  }
+  
