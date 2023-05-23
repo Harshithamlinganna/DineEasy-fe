@@ -12,11 +12,10 @@ import { MenuService } from '../service/menu.service';
   selector: 'app-order',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.css'],
-  providers: [OrderService, MenuService, MenuItemsService],
+  providers: [OrderService, MenuService],
 })
 export class OrderComponent {
   menu: Observable<IMenuModelAngular[]>;
-  menuItems:  Observable<IMenuItemsModelAngular[]>;
   resId: string | null = null;
   constructor(
     private menuService$: MenuService, 
