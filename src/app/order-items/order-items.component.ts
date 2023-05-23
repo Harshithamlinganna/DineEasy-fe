@@ -5,10 +5,6 @@ import { Observable, of } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { OrderService } from '../service/order.service';
 import { IOrderModel } from '../interfaces/IOrderModelAngular';
-import { FormsModule } from '@angular/forms';
-
-
-
 
 @Component({
   selector: 'app-order-items',
@@ -16,7 +12,6 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./order-items.component.css'],
   providers: [MenuItemsService, OrderService],
 })
-
 
 export class OrderItemsComponent {
   menuItems: Observable<IMenuItemsModelAngular[]>
@@ -30,10 +25,9 @@ export class OrderItemsComponent {
     private menuItemsService$: MenuItemsService, 
     private OrderService$: OrderService,
     private route: ActivatedRoute
-  ) {}
+  ) {};
 
   ngOnInit():void {
-
     // Get resId param from parent component [Menu]
     this.route.parent?.params.subscribe(params => {
       this.resId = params['resId'];
