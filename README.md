@@ -25,3 +25,14 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+To build and run on Azure backend server locally, use command:
+    `npm start`
+
+To build and run local backend server (port 8080) for development purposes, use command:
+    `ng serve` or `npm run start:local`
+
+Access the website through this link:
+https://dineeasyfe.azurewebsites.net
+
+
