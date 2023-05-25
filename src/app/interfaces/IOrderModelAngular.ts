@@ -7,6 +7,6 @@ interface IOrderModel {
     status: String;
     orderType: String;
     quantity: Number;
-    itemIds: [String];
+    itemIds: String[];
 }
 export {IOrderModel};

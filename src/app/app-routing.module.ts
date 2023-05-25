@@ -7,8 +7,6 @@ import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { RestaurantOverviewComponent } from './restaurant-overview/restaurant-overview.component';
 import { OrderComponent } from './order/order.component';
-import { ReservationComponent } from './reservation/reservation.component';
-import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 import { OrderItemsComponent } from './order-items/order-items.component';
 
 const routes: Routes = [
@@ -35,12 +33,6 @@ const routes: Routes = [
       {
         path: 'menu/:menuId/items', 
         component: MenuItemsComponent,
-      },
-      { path: 'reservation', 
-        component: ReservationComponent,
-      },
-      { path: 'reservation-details',
-      component: ReservationDetailsComponent
       },
       {
         path: 'order',

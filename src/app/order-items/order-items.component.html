@@ -1,10 +1,10 @@
 <header>
-    <app-menu></app-menu>
+    <app-order></app-order>
 </header>
   <div class="container">
     <div class="row section-spacing">
       <div class="col-md-11">
-        <form (click)="sendOrder()">
+        <form (submit)="sendOrder()">
             <table class="table">
               <thead>
                 <tr>
@@ -18,7 +18,7 @@
                 <tr *ngFor="let menuItem of (menuItems | async)?.[0]?.menu">
                   <td>
                     <label>
-                      <input type="checkbox" name="menuItem" [value]="menuItem?.itemId"/>
+                      <input type="checkbox" name="menuItem" [value]="menuItem?.itemId" (change) = "toggleSelection(menuItem.itemId)" [checked] = "isSelected(menuItem.itemId)"/>
                     </label>
                   </td>
                   <td>{{ menuItem.category}}</td>
