@@ -31,7 +31,7 @@ import { OrderItemsComponent } from './order-items/order-items.component';
     RestaurantComponent,
     RestaurantOverviewComponent,
     OrderComponent,
-    OrderItemsComponent
+    OrderItemsComponent,
   ],
   imports: [
     FormsModule,

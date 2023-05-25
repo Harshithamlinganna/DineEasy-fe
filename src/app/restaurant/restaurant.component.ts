@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import IRestaurantModelAngular from '../interfaces/IRestaurantModelAngular';
 import { RestaurantService } from '../service/restaurant.service';
 

@@ -4,7 +4,7 @@ import { OrderService } from '../service/order.service';
 import { MenuComponent } from '../menu/menu.component';
 import { Observable, of } from 'rxjs';
 import IMenuItemsModelAngular from '../interfaces/IMenuItemsModelAngular';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import IMenuModelAngular from '../interfaces/IMenuModelAngular';
 import { MenuService } from '../service/menu.service';
 
