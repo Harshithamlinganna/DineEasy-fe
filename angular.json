@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/dine-easy-fe",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -52,7 +52,13 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -61,13 +67,15 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "DineEasy-fe:build:production"
+              "browserTarget": "DineEasy-fe:build:production",
+              "port": 8080
             },
             "development": {
-              "browserTarget": "DineEasy-fe:build:development"
+              "browserTarget": "DineEasy-fe:build:development",
+              "port": 4200
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "production"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -97,10 +105,6 @@
     }
   },
   "cli": {
-<<<<<<< HEAD
     "analytics": "24a816a2-64c3-4567-a256-757761f4d0ac"
-=======
-    "analytics": false
->>>>>>> 19da686 (incomplete)
   }
 }

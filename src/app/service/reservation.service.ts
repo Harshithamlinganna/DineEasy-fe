@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import  {IReservationModelAngular}  from '../interfaces/IReservationModelAngular';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReservationService {
-  private hostUrl: string = 'http://localhost:8080/';
+  hostUrl:string = environment.hostUrl;
 
   constructor(private httpClient: HttpClient) { }
 
