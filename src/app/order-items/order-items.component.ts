@@ -67,44 +67,24 @@ export class OrderItemsComponent {
     return this.selectedItems.includes(itemId);
   }
 
-  //       //calculate quantity
-  //       this.quantity = this.itemIds.length;
+  sendOrder()
+  {
+    console.log("OrderSubmitted");
 
-  //       let data = {
-  //         "customerId": "asdasdasd",
-  //         quantity: this.quantity,
-  //         itemIds: this.itemIds,
-  //       }
-  //       console.log(data);
-  //       this.OrderService$.postOrder(data, this.resId, this.menuId).subscribe(response => {
-  //         console.log(response);
-  //       });
-  // }
-  sendOrder() {
-    try {
-      console.log("OrderSubmitted");
-  
-      const queryparams = this.route.snapshot.queryParamMap;
-      
-      this.itemIds = queryparams.has('menuItem') ? queryparams.getAll('menuItem') : [];
-  
-      //calculate quantity
-      this.quantity = this.itemIds.length;
-  
-      let data = {
-        customerId: "asd",
-        quantity: this.quantity,
-        itemIds: this.itemIds,
-      };
-  
-      console.log(data);
-      this.OrderService$.postOrder(data, this.resId, this.menuId).subscribe(response => {
-        console.log(response);
-      });
-    //});
-    } catch (error) {
-      console.error("Error while submitting order:", error);
+    this.itemIds = this.selectedItems;
+    //calculate quantity
+    this.quantity = this.itemIds.length;
+
+    let data = {
+      "customerId": "asdasdasd",
+      quantity: this.quantity,
+      itemIds: this.itemIds,
     }
+    this.itemIds = [];
+    this.selectedItems = [];
+    console.log(data);
+    this.OrderService$.postOrder(data, this.resId, this.menuId).subscribe(response => {
+      console.log(response);
+    });
   }
-  
 }
