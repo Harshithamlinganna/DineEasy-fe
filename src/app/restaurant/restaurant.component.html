@@ -14,7 +14,7 @@
                 <header>
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" [routerLink]="['/restaurants', restaurant.resId, 'overview']" >OverView</a>
+                      <a class="nav-link active" aria-current="page" [routerLink]="['/restaurants', restaurant.resId, 'overview']" routerLinkActive="active">OverView</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" [routerLink]="['/restaurants', restaurant.resId, 'menu']" routerLinkActive="active">Menu</a>
@@ -23,7 +23,7 @@
                       <a class="nav-link" [routerLink]="'/restaurants/' + restaurant.resId + '/reservation'">Reservation</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Order</a>
+                      <a class="nav-link" [routerLink]="['/restaurants', restaurant.resId, 'order']" routerLinkActive="active">Order</a>
                     </li>
                   </ul>
             </header>

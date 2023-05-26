@@ -7,33 +7,32 @@ import { OrderService } from '../service/order.service';
 import { IOrderModel } from '../interfaces/IOrderModelAngular';
 import { FormsModule } from '@angular/forms';
 
-
-
-
 @Component({
   selector: 'app-order-items',
   templateUrl: './order-items.component.html',
   styleUrls: ['./order-items.component.css'],
-  providers: [MenuItemsService, OrderService],
+  providers: [MenuItemsService, OrderService]
 })
-
 
 export class OrderItemsComponent {
   menuItems: Observable<IMenuItemsModelAngular[]>
   menuId: string | null = null;
   resId: string | null = null;
   quantity: Number;
-  itemIds: String[] | null;
-  selectedItems: any;
+  itemIds: String[];
+  selectedItems: any[] = [];
 
   constructor(
     private menuItemsService$: MenuItemsService, 
     private OrderService$: OrderService,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute    
+  ) {};
 
   ngOnInit():void {
 
+    // empty the selected items
+    this.itemIds = [];
+    this.selectedItems = [];
     // Get resId param from parent component [Menu]
     this.route.parent?.params.subscribe(params => {
       this.resId = params['resId'];
@@ -42,67 +41,50 @@ export class OrderItemsComponent {
     this.route.params.subscribe(params => {
 
       // Get the menuId param from the current route
-      const menuId = params['menuId'];
+      this.menuId = params['menuId'];
 
       // Request menu items for that restaurant using the menu items service
-      if(this.resId && menuId)
+      if(this.resId && this.menuId)
       {
-        this.menuItemsService$.getMenuItems(this.resId, menuId).subscribe((data: IMenuItemsModelAngular[]) => {
+        this.menuItemsService$.getMenuItems(this.resId, this.menuId).subscribe((data: IMenuItemsModelAngular[]) => {
           this.menuItems = of(data);
         });
       }
     });
   }
 
-  // sendOrder()
-  // {
-  //   console.log("OrderSubmitted");
-
-  //     this.menuItems.subscribe((menuItemsData: IMenuItemsModelAngular[]) => {
-  //       console.log(this.menuItems);
-  //       const selectedItems = menuItemsData[0]?.menu.filter(item => item.selected);
-  //       this.selectedItems = selectedItems;
-  //       this.itemIds = selectedItems.map(item => item.itemId);
-  //     });
-
-  //       //calculate quantity
-  //       this.quantity = this.itemIds.length;
-
-  //       let data = {
-  //         "customerId": "asdasdasd",
-  //         quantity: this.quantity,
-  //         itemIds: this.itemIds,
-  //       }
-  //       console.log(data);
-  //       this.OrderService$.postOrder(data, this.resId, this.menuId).subscribe(response => {
-  //         console.log(response);
-  //       });
-  // }
-  sendOrder() {
-    try {
-      console.log("OrderSubmitted");
-  
-      const queryparams = this.route.snapshot.queryParamMap;
-      
-      this.itemIds = queryparams.has('menuItem') ? queryparams.getAll('menuItem') : [];
-  
-      //calculate quantity
-      this.quantity = this.itemIds.length;
-  
-      let data = {
-        customerId: "asd",
-        quantity: this.quantity,
-        itemIds: this.itemIds,
-      };
-  
-      console.log(data);
-      this.OrderService$.postOrder(data, this.resId, this.menuId).subscribe(response => {
-        console.log(response);
-      });
-    //});
-    } catch (error) {
-      console.error("Error while submitting order:", error);
+  // check if the 
+  toggleSelection(itemId:any){
+    if(this.isSelected(itemId)){
+      this.selectedItems = this.selectedItems.filter(item => item !== itemId);
+    }else{
+      this.selectedItems.push(itemId);
     }
   }
-  
+
+  //check if the item is selected
+  isSelected(itemId:any){
+    return this.selectedItems.includes(itemId);
+  }
+
+  sendOrder()
+  {
+    console.log("OrderSubmitted");
+
+    this.itemIds = this.selectedItems;
+    //calculate quantity
+    this.quantity = this.itemIds.length;
+
+    let data = {
+      "customerId": "asdasdasd",
+      quantity: this.quantity,
+      itemIds: this.itemIds,
+    }
+    this.itemIds = [];
+    this.selectedItems = [];
+    console.log(data);
+    this.OrderService$.postOrder(data, this.resId, this.menuId).subscribe(response => {
+      console.log(response);
+    });
+  }
 }

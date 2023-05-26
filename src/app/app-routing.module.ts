@@ -6,8 +6,8 @@ import { MenuItemsComponent } from './menu-items/menu-items.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
 import { RestaurantOverviewComponent } from './restaurant-overview/restaurant-overview.component';
-import { ReservationComponent } from './reservation/reservation.component';
-import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
+import { OrderComponent } from './order/order.component';
+import { OrderItemsComponent } from './order-items/order-items.component';
 
 const routes: Routes = [
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
@@ -34,16 +34,18 @@ const routes: Routes = [
         path: 'menu/:menuId/items', 
         component: MenuItemsComponent,
       },
-      { path: 'reservation', 
-        component: ReservationComponent,
+      {
+        path: 'order',
+        component: OrderComponent,
       },
-      { path: 'reservation-details',
-      component: ReservationDetailsComponent
+      {
+        path: 'menu/:menuId/items/order',
+        component: OrderItemsComponent,
       }
     ]
-  }
-  
+  },
 ];
+  
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
