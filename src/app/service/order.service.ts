@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IOrderModel } from '../interfaces/IOrderModelAngular';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
 
-  hostUrl:string = 'http://localhost:8080/';
+  hostUrl:string = environment.hostUrl;
   constructor(private httpClient: HttpClient) { }
   
   postOrder(data:any, resId:string | null, menuId:string | null): Observable<any>{
