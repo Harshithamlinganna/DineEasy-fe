@@ -1,0 +1,19 @@
+<div class="invoice">
+    <h2>Invoice</h2>
+    <h2>{{restaurantName}}</h2>
+    <h6>{{restaurantLocation}}</h6>
+    <p class="line-section"></p>
+    <div class="item-list">
+      <div *ngFor="let item of selectedItems" class="item">
+        <div class="item-name">{{ item.name }}</div>
+        <div class="item-price">{{ item.price | currency }}</div>
+      </div>
+    </div>
+    <div class="total">Total: {{ calculateTotal() | currency }}</div>
+    <div class="download-button">
+      <button (click)="downloadInvoice()">Download Invoice</button>
+    </div>
+  </div>
+  <button (click)="goBack()" class="back-button"> Go Back</button>
+  
+  

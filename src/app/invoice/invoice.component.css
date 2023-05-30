@@ -1,0 +1,70 @@
+.invoice {
+  font-family: Arial, sans-serif;
+  width: 400px;
+  top: 80px;
+  padding: 50px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0 auto;
+  text-align: center; /* Center the entire invoice container */
+}
+
+.invoice-header {
+  margin-bottom: 20px;
+}
+
+.item-list {
+  margin-bottom: 20px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.item-name {
+  font-weight: bold;
+}
+
+.total {
+  margin-bottom: 10px;
+  text-align: right;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.download-button {
+  text-align: center;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.line-section {
+    border-top: 1px solid #b5a7a7;
+    margin: 10px 0;
+  }
+
+  .back-button {
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    padding: 10px;
+    background-color: #141715;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .back-button i {
+    margin-right: 5px;
+  }
+  
