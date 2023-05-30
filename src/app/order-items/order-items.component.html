@@ -29,6 +29,7 @@
             </table>
             <button type="submit" class="button btn-primary" >Submit</button>
           </form>
+          <button *ngIf="showInvoiceButton" (click)="showInvoice()" class = "invoice-button">Get Invoice</button>
         <router-outlet></router-outlet>
     </div>
   </div>

@@ -17,8 +17,7 @@ export class RestaurantOverviewComponent {
       private service: RestaurantService
     ) {}
   
-    ngOnInit() {
-      
+    ngOnInit() { 
       const resId = this.route.parent?.snapshot.paramMap.get('resId')!;
       console.log("resId ", resId);
       this.service.getRestaurantDetailsById(resId).subscribe(
