@@ -20,6 +20,7 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
 import { RestaurantOverviewComponent } from './restaurant-overview/restaurant-overview.component';
 import { OrderComponent } from './order/order.component';
 import { OrderItemsComponent } from './order-items/order-items.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { OrderItemsComponent } from './order-items/order-items.component';
     RestaurantOverviewComponent,
     OrderComponent,
     OrderItemsComponent,
+    InvoiceComponent,
   ],
   imports: [
     FormsModule,

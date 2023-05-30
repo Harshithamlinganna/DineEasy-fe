@@ -1,11 +1,11 @@
-import { Component, NgModule } from '@angular/core';
+import { Component} from '@angular/core';
 import { MenuItemsService }  from '../service/menu-items.service';
 import IMenuItemsModelAngular from '../interfaces/IMenuItemsModelAngular';
+import SelectedMenuItem from '../interfaces/SelectedMenuItem'
 import { Observable, of } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OrderService } from '../service/order.service';
-import { IOrderModel } from '../interfaces/IOrderModelAngular';
-import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-order-items',
@@ -20,19 +20,22 @@ export class OrderItemsComponent {
   resId: string | null = null;
   quantity: Number;
   itemIds: String[];
-  selectedItems: any[] = [];
+  selectedItems: SelectedMenuItem[] = [];
+  showInvoiceButton: boolean = false;
+  data: any[] = [];
+
 
   constructor(
     private menuItemsService$: MenuItemsService, 
     private OrderService$: OrderService,
-    private route: ActivatedRoute    
+    private route: ActivatedRoute,
+    private router: Router   
   ) {};
 
   ngOnInit():void {
 
     // empty the selected items
     this.itemIds = [];
-    this.selectedItems = [];
     // Get resId param from parent component [Menu]
     this.route.parent?.params.subscribe(params => {
       this.resId = params['resId'];
@@ -53,15 +56,23 @@ export class OrderItemsComponent {
     });
   }
 
-  // check if the 
-  toggleSelection(itemId:any){
-    if(this.isSelected(itemId)){
-      this.selectedItems = this.selectedItems.filter(item => item !== itemId);
-    }else{
-      this.selectedItems.push(itemId);
-    }
+  toggleSelection(itemId: any) {
+    this.menuItems.subscribe(items => {
+      const menuItem = items[0].menu.find(item => item.itemId === itemId);
+      if (menuItem) {
+        if (this.isSelected(itemId)) {
+          this.selectedItems = this.selectedItems.filter(item => item.itemId !== itemId);
+        } else {
+          this.selectedItems.push({
+            itemId: menuItem.itemId,
+            name: menuItem.name,
+            price: menuItem.price,
+            category: menuItem.category
+          });
+        }
+      }
+    });
   }
-
   //check if the item is selected
   isSelected(itemId:any){
     return this.selectedItems.includes(itemId);
@@ -71,7 +82,7 @@ export class OrderItemsComponent {
   {
     console.log("OrderSubmitted");
 
-    this.itemIds = this.selectedItems;
+    this.itemIds =  this.selectedItems.map(item => item.itemId)
     //calculate quantity
     this.quantity = this.itemIds.length;
 
@@ -80,11 +91,17 @@ export class OrderItemsComponent {
       quantity: this.quantity,
       itemIds: this.itemIds,
     }
-    this.itemIds = [];
-    this.selectedItems = [];
-    console.log(data);
     this.OrderService$.postOrder(data, this.resId, this.menuId).subscribe(response => {
-      console.log(response);
+      console.log("response:",response);
+      this.showInvoiceButton = true;
     });
+  }
+
+  showInvoice() {
+    // Convert selectedItems to JSON string
+    const itemsJson = JSON.stringify(this.selectedItems);
+    
+    // Pass the selected items as query parameters when navigating to the InvoiceComponent
+    this.router.navigate(['/invoice'], { queryParams: { items: itemsJson, resId: this.resId } });
   }
 }

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import IRestaurantModelAngular from '../interfaces/IRestaurantModelAngular';
 import { RestaurantService } from '../service/restaurant.service';
+import { RestaurantDataService } from '../service/restaurant-data.service';
 
 @Component({
   selector: 'app-restaurant',
@@ -13,7 +14,8 @@ export class RestaurantComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private service: RestaurantService
+    private service: RestaurantService,
+    private restaurantDataService: RestaurantDataService
   ) {}
 
   ngOnInit() {
@@ -23,6 +25,7 @@ export class RestaurantComponent {
       data => {
         this.restaurant = data
         console.log("restaurant", this.restaurant.name)
+        this.restaurantDataService.setRestaurantData(this.restaurant);
       }
     );
   }
