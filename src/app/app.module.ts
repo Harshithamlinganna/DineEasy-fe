@@ -21,6 +21,8 @@ import { RestaurantOverviewComponent } from './restaurant-overview/restaurant-ov
 import { OrderComponent } from './order/order.component';
 import { OrderItemsComponent } from './order-items/order-items.component';
 import { InvoiceComponent } from './invoice/invoice.component';
+import { ReservationComponent } from './reservation/reservation.component';
+import { ReservationDetailsComponent } from './reservation-details/reservation-details.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { InvoiceComponent } from './invoice/invoice.component';
     OrderComponent,
     OrderItemsComponent,
     InvoiceComponent,
+    ReservationComponent,
+    ReservationDetailsComponent,
   ],
   imports: [
     FormsModule,
