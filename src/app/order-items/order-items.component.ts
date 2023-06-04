@@ -1,11 +1,11 @@
-import { Component} from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { MenuItemsService }  from '../service/menu-items.service';
 import IMenuItemsModelAngular from '../interfaces/IMenuItemsModelAngular';
-import SelectedMenuItem from '../interfaces/SelectedMenuItem'
 import { Observable, of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { OrderService } from '../service/order.service';
-
+import { IOrderModel } from '../interfaces/IOrderModelAngular';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-order-items',
@@ -16,39 +16,36 @@ import { OrderService } from '../service/order.service';
 
 export class OrderItemsComponent {
   menuItems: Observable<IMenuItemsModelAngular[]>
-  menuId: string | null = null;
-  resId: string | null = null;
+  menuId: String;
+  resId: string | null;
   quantity: Number;
   itemIds: String[];
-  selectedItems: SelectedMenuItem[] = [];
-  showInvoiceButton: boolean = false;
-  data: any[] = [];
-
+  selectedItems: any[] = [];
+  invoiceItems: any[] = [];
+  itemsSubmitted: boolean = false;
 
   constructor(
     private menuItemsService$: MenuItemsService, 
     private OrderService$: OrderService,
     private route: ActivatedRoute,
-    private router: Router   
+    private router: Router  
   ) {};
 
-  ngOnInit():void {
-
+  ngOnInit(): void {
     // empty the selected items
     this.itemIds = [];
+    this.selectedItems = [];
     // Get resId param from parent component [Menu]
     this.route.parent?.params.subscribe(params => {
       this.resId = params['resId'];
     });
 
     this.route.params.subscribe(params => {
-
       // Get the menuId param from the current route
       this.menuId = params['menuId'];
 
       // Request menu items for that restaurant using the menu items service
-      if(this.resId && this.menuId)
-      {
+      if(this.resId && this.menuId) {
         this.menuItemsService$.getMenuItems(this.resId, this.menuId).subscribe((data: IMenuItemsModelAngular[]) => {
           this.menuItems = of(data);
         });
@@ -56,34 +53,33 @@ export class OrderItemsComponent {
     });
   }
 
-  toggleSelection(itemId: any) {
-    this.menuItems.subscribe(items => {
-      const menuItem = items[0].menu.find(item => item.itemId === itemId);
-      if (menuItem) {
-        if (this.isSelected(itemId)) {
-          this.selectedItems = this.selectedItems.filter(item => item.itemId !== itemId);
-        } else {
-          this.selectedItems.push({
-            itemId: menuItem.itemId,
-            name: menuItem.name,
-            price: menuItem.price,
-            category: menuItem.category
-          });
-        }
-      }
-    });
+  toggleSelection(itemId: String, price: number, name: String): void {
+    if (this.isSelected(itemId)) {
+      this.selectedItems = this.selectedItems.filter(item => item !== itemId);
+      this.invoiceItems = this.invoiceItems.filter(item => item.itemId !== itemId);
+      console.log("deselect the item from the invoiceItems array  ---", this.invoiceItems )
+      console.log("deselect the item from the array to selectedItems ---", this.selectedItems )
+    } else {
+      this.selectedItems.push(itemId);
+      this.invoiceItems.push({ itemId, name, price });
+      console.log("successfully added the items to invoiceItems", this.invoiceItems)
+      console.log("successfully added the items to selectedItems", this.selectedItems)
+    }
   }
-  //check if the item is selected
-  isSelected(itemId:any){
+
+  // check if the item contains in the selected.
+  isSelected(itemId: any): boolean {
     return this.selectedItems.includes(itemId);
   }
 
-  sendOrder()
-  {
-    console.log("OrderSubmitted");
+  sendOrder(): void {
+    if (this.selectedItems.length === 0) {
+      alert("Please select at least one item");
+      return;
+    }
 
-    this.itemIds =  this.selectedItems.map(item => item.itemId)
-    //calculate quantity
+    this.itemIds = this.selectedItems;
+    // calculate quantity
     this.quantity = this.itemIds.length;
 
     let data = {
@@ -91,17 +87,20 @@ export class OrderItemsComponent {
       quantity: this.quantity,
       itemIds: this.itemIds,
     }
+    console.log(data);
     this.OrderService$.postOrder(data, this.resId, this.menuId).subscribe(response => {
-      console.log("response:",response);
-      this.showInvoiceButton = true;
+      console.log(response);
+      this.itemsSubmitted = true; 
     });
   }
 
-  showInvoice() {
-    // Convert selectedItems to JSON string
-    const itemsJson = JSON.stringify(this.selectedItems);
-    
-    // Pass the selected items as query parameters when navigating to the InvoiceComponent
-    this.router.navigate(['/invoice'], { queryParams: { items: itemsJson, resId: this.resId } });
+  generateInvoice(): void {
+    if (this.invoiceItems.length === 0) {
+      console.log('No items selected for the invoice');
+      return;
+    }
+
+    console.log('Generating invoice...', this.invoiceItems);
+    this.router.navigate(['/invoice'], { queryParams: { items: JSON.stringify(this.invoiceItems), resId: this.resId } });
   }
 }

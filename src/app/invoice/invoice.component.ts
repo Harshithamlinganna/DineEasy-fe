@@ -19,10 +19,9 @@ export class InvoiceComponent {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      const itemsJson = params['items'];
+      const invoiceItems = JSON.parse(params['items']);
       this.resId = params['resId'];
-      this.selectedItems = itemsJson ? JSON.parse(itemsJson) : [];
-      console.log("selectedItems:", this.selectedItems);
+      this.selectedItems = invoiceItems;
       const restaurantData = this.restaurantDataService.getRestaurantData();
       if (restaurantData) {
         this.restaurantName = restaurantData.name;
