@@ -12,7 +12,7 @@ export class OrderService {
   hostUrl:string = environment.hostUrl;
   constructor(private httpClient: HttpClient) { }
   
-  postOrder(data:any, resId:string | null, menuId:string | null): Observable<any>{
+  postOrder(data:any, resId:string | null, menuId:String | null): Observable<any>{
     let url = this.hostUrl + 'restaurants/' + resId + '/menu/' + menuId + '/items/order';
     console.log(url);
     console.log(data);

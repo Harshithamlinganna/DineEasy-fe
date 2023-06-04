@@ -12,7 +12,7 @@ export class MenuItemsService {
   
   constructor(private httpClient: HttpClient) { }
   
-  getMenuItems(resId: string, menuId: string) {
+  getMenuItems(resId: string, menuId: String) {
     console.log("Here")
     return this.httpClient.get<IMenuItemsModelAngular[]>( this.hostUrl + 'restaurants/' + resId + '/menu/' + menuId + '/items');
   }

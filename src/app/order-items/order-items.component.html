@@ -1,36 +1,38 @@
 <header>
-    <app-order></app-order>
+  <app-order></app-order>
 </header>
-  <div class="container">
-    <div class="row section-spacing">
-      <div class="col-md-11">
-        <form (submit)="sendOrder()">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Select</th>
-                  <th>Category</th>
-                  <th>Name</th>
-                  <th>Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let menuItem of (menuItems | async)?.[0]?.menu">
-                  <td>
-                    <label>
-                      <input type="checkbox" name="menuItem" [value]="menuItem?.itemId" (change) = "toggleSelection(menuItem.itemId)" [checked] = "isSelected(menuItem.itemId)"/>
-                    </label>
-                  </td>
-                  <td>{{ menuItem.category}}</td>
-                  <td>{{ menuItem.name}}</td>
-                  <td>{{ menuItem.price}}</td>
-                </tr>
-              </tbody>
-            </table>
-            <button type="submit" class="button btn-primary" >Submit</button>
-          </form>
-          <button *ngIf="showInvoiceButton" (click)="showInvoice()" class = "invoice-button">Get Invoice</button>
-        <router-outlet></router-outlet>
-    </div>
+<div class="container">
+  <div class="row section-spacing">
+    <div class="col-md-11">
+      <form (submit)="sendOrder()">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Select</th>
+                <th>Category</th>
+                <th>Name</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let menuItem of (menuItems | async)?.[0]?.menu">
+                <td>
+                  <label>
+                    <input type="checkbox" name="menuItem" [value]="menuItem?.itemId" (change) = "toggleSelection(menuItem.itemId, menuItem.price, menuItem.name)" [checked] = "isSelected(menuItem.itemId)"/>
+                  </label>
+                </td>
+                <td>{{ menuItem.category}}</td>
+                <td>{{ menuItem.name}}</td>
+                <td>{{ menuItem.price}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <button type="submit" class="button generate-invoice-button" onclick="sendOrder()">Submit</button>
+        </form>
+        <div class="invoice-button" *ngIf="itemsSubmitted">
+          <button class="button generate-invoice-button" (click)="generateInvoice()">Generate Invoice</button>
+        </div>
+      <router-outlet></router-outlet> 
   </div>
+</div>
 </div>
